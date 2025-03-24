@@ -41,9 +41,9 @@ header p {
     animation-fill-mode: backwards; 
 }
 
-section { 
+.section-content { 
     padding: 60px 20px; 
-    max-width: 960px; 
+    max-width: 1100px; 
     margin: auto; 
     animation: fadeInUp 1s ease-in-out; 
 }
@@ -51,7 +51,8 @@ section {
 h2 { 
     color: #00c6ff; 
     font-size: 1.8rem; 
-    margin-bottom: 20px; 
+    margin-bottom: 30px; 
+    text-align: center;
 }
 
 p { 
@@ -63,17 +64,47 @@ ul {
     padding-left: 0; 
 }
 
+ul li { 
+    margin-bottom: 10px;
+}
+
 ul li::before { 
     content: '✔'; 
     color: #00c6ff; 
     margin-right: 10px; 
 }
 
-.img-section { 
-    max-width: 100%; 
-    margin-top: 20px; 
-    border-radius: 10px; 
-    box-shadow: 0 2px 6px rgba(0,0,0,0.1); 
+/* Layout flexível para as seções */
+.flex-container {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    margin-top: 20px;
+}
+
+.text-left-image-right {
+    flex-direction: row;
+}
+
+.image-left-text-right {
+    flex-direction: row-reverse;
+}
+
+.content-text {
+    flex: 1;
+}
+
+.content-image {
+    flex: 1;
+}
+
+.content-image img {
+    width: 100%;
+    max-width: 450px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    display: block;
+    margin: 0 auto;
 }
 
 .cta {
@@ -85,6 +116,7 @@ ul li::before {
 }
 
 .cta h2 { 
+    color: white;
     margin-bottom: 20px; 
 }
 
@@ -97,10 +129,12 @@ ul li::before {
     font-weight: 600;
     text-decoration: none;
     transition: 0.3s;
+    margin-top: 10px;
 }
 
 .cta a:hover { 
-    background: #e0e0e0; 
+    background: #e0e0e0;
+    transform: translateY(-2px);
 }
 
 footer { 
@@ -111,6 +145,7 @@ footer {
     animation: fadeIn 1s ease-in-out; 
 }
 
+/* Animações */
 @keyframes fadeIn {
     from { opacity: 0; }
     to { opacity: 1; }
@@ -119,4 +154,25 @@ footer {
 @keyframes fadeInUp {
     from { opacity: 0; transform: translateY(20px); }
     to { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsividade para telas menores */
+@media (max-width: 768px) {
+    .flex-container {
+        flex-direction: column;
+        gap: 20px;
+    }
+    
+    .content-image img {
+        max-width: 100%;
+        margin-top: 20px;
+    }
+    
+    h2 {
+        font-size: 1.6rem;
+    }
+    
+    header h1 {
+        font-size: 1.8rem;
+    }
 }
