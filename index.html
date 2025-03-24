@@ -20,9 +20,12 @@
       <h1>Potencialize seu negócio com IA</h1>
       <p>Transforme sua operação com soluções inteligentes que reduzem custos e aumentam resultados</p>
     </div>
+    <a href="#primeira-secao" class="scroll-down">
+      <div class="arrow-down"></div>
+    </a>
   </header>
 
-  <section class="section-content">
+  <section id="primeira-secao" class="section-content">
     <h2>Sua empresa está pronta para o futuro?</h2>
     <div class="flex-container text-left-image-right">
       <div class="content-text">
@@ -99,5 +102,25 @@
   <footer>
     <p>&copy; 2025 EXOD Digital. Todos os direitos reservados.</p>
   </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Rolagem suave ao clicar na seta
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+          e.preventDefault();
+          const targetId = this.getAttribute('href');
+          const targetElement = document.querySelector(targetId);
+          
+          if (targetElement) {
+            window.scrollTo({
+              top: targetElement.offsetTop,
+              behavior: 'smooth'
+            });
+          }
+        });
+      });
+    });
+  </script>
 </body>
 </html>
