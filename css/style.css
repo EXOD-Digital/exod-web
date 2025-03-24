@@ -82,12 +82,30 @@ ul li::before {
     margin-top: 20px;
 }
 
+/* Texto à esquerda, imagem à direita */
 .text-left-image-right {
     flex-direction: row;
 }
 
+/* Imagem à esquerda, texto à direita */
 .image-left-text-right {
     flex-direction: row-reverse;
+}
+
+/* Na versão mobile, queremos que a imagem fique sempre abaixo do texto,
+   independentemente da classe aplicada */
+@media (max-width: 768px) {
+    .flex-container,
+    .text-left-image-right,
+    .image-left-text-right {
+        flex-direction: column;
+        gap: 20px;
+    }
+    
+    .content-image img {
+        max-width: 100%;
+        margin-top: 20px;
+    }
 }
 
 .content-text {
@@ -96,6 +114,8 @@ ul li::before {
 
 .content-image {
     flex: 1;
+    display: flex;
+    justify-content: center;
 }
 
 .content-image img {
@@ -103,8 +123,6 @@ ul li::before {
     max-width: 450px;
     border-radius: 10px;
     box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-    display: block;
-    margin: 0 auto;
 }
 
 .cta {
@@ -154,25 +172,4 @@ footer {
 @keyframes fadeInUp {
     from { opacity: 0; transform: translateY(20px); }
     to { opacity: 1; transform: translateY(0); }
-}
-
-/* Responsividade para telas menores */
-@media (max-width: 768px) {
-    .flex-container {
-        flex-direction: column;
-        gap: 20px;
-    }
-    
-    .content-image img {
-        max-width: 100%;
-        margin-top: 20px;
-    }
-    
-    h2 {
-        font-size: 1.6rem;
-    }
-    
-    header h1 {
-        font-size: 1.8rem;
-    }
 }
