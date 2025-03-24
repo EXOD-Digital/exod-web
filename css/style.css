@@ -13,30 +13,71 @@ body {
 }
 
 header { 
-    background: #000; 
+    position: relative;
     color: #fff; 
-    padding: 40px 20px; 
+    padding: 0;
     text-align: center; 
-    animation: fadeIn 1s ease-in-out; 
+    animation: fadeIn 1s ease-in-out;
+    overflow: hidden;
+    height: 100vh;
+    min-height: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.video-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+}
+
+#hero-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7); /* Overlay escuro para melhorar a legibilidade */
+    z-index: 1;
+}
+
+.header-content {
+    position: relative;
+    z-index: 2;
+    max-width: 800px;
+    padding: 40px 20px;
 }
 
 header img { 
-    max-width: 200px; 
-    margin-bottom: 20px; 
+    max-width: 220px; 
+    margin-bottom: 30px; 
     animation: fadeIn 1s ease-in-out 0.5s; 
     animation-fill-mode: backwards; 
 }
 
 header h1 { 
-    font-size: 2.2rem; 
-    margin-bottom: 10px; 
+    font-size: 2.6rem; 
+    margin-bottom: 20px; 
     animation: fadeInUp 1s ease-in-out 0.8s; 
     animation-fill-mode: backwards; 
 }
 
 header p { 
-    font-size: 1.2rem; 
-    color: #ccc; 
+    font-size: 1.3rem; 
+    color: #f0f0f0; 
     animation: fadeInUp 1s ease-in-out 1s; 
     animation-fill-mode: backwards; 
     max-width: 800px;
@@ -102,6 +143,19 @@ ul li::before {
 /* Na versão mobile, queremos que a imagem fique sempre abaixo do texto,
    independentemente da classe aplicada */
 @media (max-width: 768px) {
+    header {
+        height: 100vh;
+        min-height: 500px;
+    }
+    
+    header h1 {
+        font-size: 2rem;
+    }
+    
+    header p {
+        font-size: 1.1rem;
+    }
+    
     .flex-container,
     .text-left-image-right,
     .image-left-text-right {
@@ -116,10 +170,6 @@ ul li::before {
     
     h2 {
         font-size: 1.6rem;
-    }
-    
-    header h1 {
-        font-size: 1.8rem;
     }
     
     .testimonial-container {
